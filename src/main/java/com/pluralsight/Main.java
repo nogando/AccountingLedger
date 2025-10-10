@@ -28,10 +28,12 @@ public class Main {
             if(choice.trim().equalsIgnoreCase("d")){
                 System.out.println("Adding Deposit");
                 //todo prompt user for the deposit information and save it to the csv file
+                //todo make the method
             }
             else if(choice.trim().equalsIgnoreCase("p")){
                 System.out.println("Making Payment");
                 //todo prompt user for the debit information and save it to the csv file
+                //todo make the method
             }
             else if(choice.trim().equalsIgnoreCase("l")){
                 System.out.println("Showing Ledger");
@@ -39,28 +41,85 @@ public class Main {
 
                 ledgerMenu();
 
-                //o A) All - Display all entries
-                //o D) Deposits - Display only the entries that are deposits into the account
-                //o P) Payments - Display only the negative entries (or payments)
-                //o R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search
-                //create a sub screen that shows
-
-
                 boolean ledgerRunning = true;
+
                 while(ledgerRunning == true){
                     String ledgerChoice= scanner.nextLine();
 
                     if(ledgerChoice.trim().equalsIgnoreCase("a")){
                         System.out.println("All Entries");
+                        //todo make a all entries method
                     }
                     else if(ledgerChoice.trim().equalsIgnoreCase("d")){
                         System.out.println("Making Deposit");
+                        //todo make a deposit method
                     }
                     else if(ledgerChoice.trim().equalsIgnoreCase("p")){
                         System.out.println("Making Payment");
+                        //todo make a payment method
                     }
                     else if(ledgerChoice.trim().equalsIgnoreCase("r")){
                         System.out.println("Report Menu");
+
+                        boolean reportRunning = true;
+                        //create a sub screen that shows
+                        reportMenu();
+                        while(reportRunning == true){
+
+
+                            int reportChoice = scanner.nextInt();
+                            scanner.nextLine();
+                            // 1) Month To Date
+                            if(reportChoice == 1){
+
+                                System.out.println("Month to Date Report");
+                                reportMenu();
+                                //todo create a method that reports month to date
+                            }// 2) Previous Month
+                            else if(reportChoice == 2){
+
+                                System.out.println("Previous Month Report");
+                                reportMenu();
+                                //todo create a method that reports previous month report
+                            }// 3) Year To Date
+                            else if(reportChoice == 3){
+
+                                System.out.println("Year To Date Report");
+                                reportMenu();
+                                //todo create a method that reports Year to date Report
+                            }// 4) Previous Year
+                            else if(reportChoice == 4){
+
+                                System.out.println("Previous Year Report");
+                                reportMenu();
+                                //todo create a method that reports previous year
+                            }// 5) Search by Vendor - prompt the user for the vendor name and display all entries for that vendor
+                            else if (reportChoice == 5) {
+                                System.out.println("Searching by Vendor");
+                                reportMenu();
+                                //todo create a method that searches by vendor
+                            }// 0) Back - go back to the Ledger page
+                            else if (reportChoice == 0) {
+                                System.out.println("See you later Reports!");
+                                reportRunning = false;
+                                ledgerMenu();
+
+                            }
+                            else {
+                                System.out.println("Invalid Entry!");
+                                reportMenu();
+                            }
+                        }
+
+
+
+
+
+
+
+
+
+
                     }
                     else if(ledgerChoice.trim().equalsIgnoreCase("h")){
 
@@ -75,14 +134,7 @@ public class Main {
                         ledgerMenu();
                     }
 
-                    //create a sub screen that shows
 
-                    // 1) Month To Date
-                    // 2) Previous Month
-                    // 3) Year To Date
-                    // 4) Previous Year
-                    // 5) Search by Vendor - prompt the user for the vendor name and display all entries for that vendor
-                    // 0) Back - go back to the Ledger page
                 }
 
 
@@ -129,5 +181,17 @@ public class Main {
                     """;
         System.out.println(ledgerMenu);
 
+    }
+    public static void reportMenu(){
+        String reportMenu = """
+                    \n========= Report Menu =========
+                        o 1) Month To Date
+                        o 2) Previous Month
+                        o 3) Year To Date
+                        o 4) Previous Year
+                        o 5) Search by Vendor - prompt the user for the vendor name and display all entries for that vendor
+                        o 0) Back - go back to the Ledger page
+                    """;
+        System.out.println(reportMenu);
     }
 }
