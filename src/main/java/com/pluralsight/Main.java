@@ -37,12 +37,43 @@ public class Main {
                 System.out.println("Showing Ledger");
                 //todo display the ledger screen
 
-                //create a sub screen that shows
+                ledgerMenu();
 
                 //o A) All - Display all entries
                 //o D) Deposits - Display only the entries that are deposits into the account
                 //o P) Payments - Display only the negative entries (or payments)
                 //o R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search
+                //create a sub screen that shows
+
+
+                boolean ledgerRunning = true;
+                while(ledgerRunning == true){
+                    String ledgerChoice= scanner.nextLine();
+
+                    if(ledgerChoice.trim().equalsIgnoreCase("a")){
+                        System.out.println("All Entries");
+                    }
+                    else if(ledgerChoice.trim().equalsIgnoreCase("d")){
+                        System.out.println("Making Deposit");
+                    }
+                    else if(ledgerChoice.trim().equalsIgnoreCase("p")){
+                        System.out.println("Making Payment");
+                    }
+                    else if(ledgerChoice.trim().equalsIgnoreCase("r")){
+                        System.out.println("Report Menu");
+                    }
+                    else if(ledgerChoice.trim().equalsIgnoreCase("h")){
+
+                        System.out.println("See You Later!");
+                        ledgerRunning = false;
+                        homeMenu();
+
+                    }
+                    else{
+                        System.out.println("Invalid Entry Selected!");
+
+                        ledgerMenu();
+                    }
 
                     //create a sub screen that shows
 
@@ -52,6 +83,10 @@ public class Main {
                     // 4) Previous Year
                     // 5) Search by Vendor - prompt the user for the vendor name and display all entries for that vendor
                     // 0) Back - go back to the Ledger page
+                }
+
+
+
 
             } else if (choice.trim().equalsIgnoreCase("x")) {
                 running = false;
@@ -71,12 +106,28 @@ public class Main {
 
     public static void homeMenu(){
         String homeMenu = """
-                    \n========= Product Menu =========
-                        D- Add Deposit
-                        P- Make Payment(Debit)
-                        L- Ledger
-                        X- Exit
+                    \n=========== Bank App  ===========
+                    
+                          Welcome To The
+                                Future Of Banking...
+                    \n========= Home Menu =========
+                        o D) Add Deposit
+                        o P) Make Payment(Debit)
+                        o L) Ledger
+                        o X) Exit
                     """;
                 System.out.println(homeMenu);
+    }
+    public static void ledgerMenu(){
+        String ledgerMenu = """
+                    \n========= Ledger Menu =========
+                        o A) All Entries
+                        o D) Deposits
+                        o P) Payments
+                        o R) Reports
+                        o H) Home
+                    """;
+        System.out.println(ledgerMenu);
+
     }
 }
