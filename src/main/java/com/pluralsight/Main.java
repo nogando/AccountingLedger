@@ -62,6 +62,7 @@ public class Main {
                         o 3) Year To Date
                         o 4) Previous Year
                         o 5) Search by Vendor - prompt the user for the vendor name and display all entries for that vendor
+                        o 6) Custom Search
                         o 0) Back - go back to the Ledger page
                     """;
         System.out.println(reportMenu);
