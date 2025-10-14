@@ -1,8 +1,7 @@
 package com.pluralsight;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -11,14 +10,48 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+    //Scanner for my Home Menu
     Scanner scanner = new Scanner(System.in);
 
-    printTransactions();
+    //Get my transactions from the csv file
+    ArrayList<Transactions> transactions = importTransactions();
 
     handleHome(scanner);
 
     }
 
+
+
+    //Import my objects or  Transactions in a ArrayList
+    public static ArrayList<Transactions> importTransactions(){
+        ArrayList<Transactions>transactions = new ArrayList<>();
+        try{
+            FileReader fileReader = new FileReader("transactions.csv");
+            BufferedReader bufReader = new BufferedReader(fileReader);
+
+            String input;
+            while ((input = bufReader.readLine()) != null){
+
+                String[] split = input.split("\\|");
+
+                LocalDate date = LocalDate.parse(split[0]);
+                LocalTime time = LocalTime.parse(split[1]);
+                String description = split[2];
+                String vendor = split[3];
+                double amount = Double.parseDouble(split[4]);
+
+                Transactions transaction = new Transactions(amount,date,description,time,vendor);
+                transactions.add(transaction);
+
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred! "+ e.getLocalizedMessage());
+        }
+        return transactions;
+    }
+
+
+    //my Three Menus for Home, ledger, and Reports Menu
     public static void handleReports(Scanner scanner){
         boolean reportRunning = true;
         String reportMenu = """
@@ -121,18 +154,15 @@ public class Main {
 
             switch (ledgerChoice){
                 case "a":
-                    System.out.println("All Entries");
-                    //todo show all entries method
+                    printTransactions();
                     break;
 
                 case "d":
-                    System.out.println("Deposits");
-                    //todo show all deposits method
+                    printDeposits();
                     break;
 
                 case "p":
-                    System.out.println("Payments");
-                    //todo show payments method
+                    printPayments();
                     break;
 
                 case "r":
@@ -172,13 +202,12 @@ public class Main {
             String homeChoice = scanner.nextLine().trim().toLowerCase();
             switch (homeChoice){
                 case "d":
-                    System.out.println("Add Deposit");
-                    //todo Make a deposit method
+                    addDeposit();
                     break;
 
                 case "p":
-                    System.out.println("Make a payment");
-                    //todo make a payment method
+
+                    makePayment();
                     break;
                 case "l":
                     handleLedger(scanner);
@@ -199,25 +228,237 @@ public class Main {
             }
         }
     }
+
+
+
+    //Methods for Home menu
+    public static void addDeposit(){
+        System.out.println("========= Deposit =========\n");
+        Scanner scanner = new Scanner(System.in);
+
+        LocalDate localDate = ConsoleHelper.promptForDate("What is the Date of the Deposit? - YYYY-MM-DD");
+        String date = localDate.toString();
+
+        System.out.println();
+
+        LocalTime localTime = ConsoleHelper.promptForTime("What is the Time of the Deposit? - 00:00:00");
+        String time = localTime.toString();
+        System.out.println();
+
+
+        String description = ConsoleHelper.promptForString("What is the Description of the Deposit? - Paycheck Ect");
+        System.out.println();
+
+
+
+        String vendor = ConsoleHelper.promptForString("Who is the Deposit from? - AutoZone Ect");
+        System.out.println();
+
+
+
+        double doubleAmount =  ConsoleHelper.promptForDouble("What is the Amount of the Deposit? - $0000.00");
+        String amount = Double.toString(doubleAmount);
+        System.out.println();
+
+
+
+
+        try {
+            //create a file writer
+            //FileWriter fileWriter = new FileWriter("transactions.csv");
+            FileWriter fileWriter = new FileWriter("transactions.csv",true);
+            //create buffered file writer
+            BufferedWriter bufWriter = new BufferedWriter(fileWriter);
+            // make sure it writes to the next line
+            bufWriter.newLine();
+            bufWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + amount );
+
+
+            bufWriter.close();
+
+            System.out.println("Deposit Entered!");
+
+        }catch (Exception e){
+            System.out.println("Error Occurred "+ e.getLocalizedMessage());
+        }
+
+
+        String homeMenu = """
+                    \n=========== Bank App  ===========
+
+                          Welcome To The
+                                Future Of Banking...
+                    \n========= Home Menu =========
+                        o D) Add Deposit
+                        o P) Make Payment(Debit)
+                        o L) Ledger
+                        o X) Exit
+                    """;
+        System.out.println(homeMenu);
+    }
+    public static void makePayment(){
+        System.out.println("========= Payment =========\n");
+        Scanner scanner = new Scanner(System.in);
+
+        LocalDate localDate = ConsoleHelper.promptForDate("What is the Date of the Payment? - YYYY-MM-DD");
+        String date = localDate.toString();
+
+        System.out.println();
+
+        LocalTime localTime = ConsoleHelper.promptForTime("What is the Time of the Payment? - 00:00:00");
+        String time = localTime.toString();
+        System.out.println();
+
+
+        String description = ConsoleHelper.promptForString("What is the Description of the Payment? - Water Bill Ect");
+        System.out.println();
+
+
+
+        String vendor = ConsoleHelper.promptForString("Who is the Payment to? - Rent Ect");
+        System.out.println();
+
+
+
+        double doubleAmount =  ConsoleHelper.promptForDouble("What is the Amount of the Payment? - $0000.00");
+        String amount = Double.toString(-doubleAmount);
+        System.out.println();
+
+
+
+
+        try {
+            //create a file writer
+            //FileWriter fileWriter = new FileWriter("transactions.csv");
+            FileWriter fileWriter = new FileWriter("transactions.csv",true);
+            //create buffered file writer
+            BufferedWriter bufWriter = new BufferedWriter(fileWriter);
+            // make sure it writes to the next line
+            bufWriter.newLine();
+            bufWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + amount );
+
+
+            bufWriter.close();
+
+            System.out.println("Payment Entered!");
+
+        }catch (Exception e){
+            System.out.println("Error Occurred "+ e.getLocalizedMessage());
+        }
+
+
+        String homeMenu = """
+                    \n=========== Bank App  ===========
+
+                          Welcome To The
+                                Future Of Banking...
+                    \n========= Home Menu =========
+                        o D) Add Deposit
+                        o P) Make Payment(Debit)
+                        o L) Ledger
+                        o X) Exit
+                    """;
+        System.out.println(homeMenu);
+    }
+
+    //Methods for my Ledger menu
     public static void printTransactions(){
+
+        System.out.println("========= All Entries =========\n");
         try{
             FileReader fileReader = new FileReader("transactions.csv");
             BufferedReader bufReader = new BufferedReader(fileReader);
 
             String input;
-             while ((input = bufReader.readLine()) != null){
 
-             String[] split = input.split("\\|");
+            while ((input = bufReader.readLine()) != null){
 
-             LocalDate date = LocalDate.parse(split[0]);
-             LocalTime time = LocalTime.parse(split[1]);
-             String description = split[2];
-             String vendor = split[3];
-             double amount = Double.parseDouble(split[4]);
+                System.out.println(input);
+
 
             }
         }catch (Exception e){
             System.out.println("Error occurred! "+ e.getLocalizedMessage());
         }
+        String ledgerMenu = """
+                    \n========= Ledger Menu =========
+                        o A) All Entries
+                        o D) Deposits
+                        o P) Payments
+                        o R) Reports
+                        o H) Home
+                    """;
+        System.out.println(ledgerMenu);
     }
+    public static void printDeposits(){
+        System.out.println("========= Deposits =========\n");
+        try{
+            FileReader fileReader = new FileReader("transactions.csv");
+            BufferedReader bufReader = new BufferedReader(fileReader);
+
+            String input;
+            while ((input = bufReader.readLine()) != null){
+
+                String[] split = input.split("\\|");
+
+                double amount = Double.parseDouble(split[4]);
+
+                if(amount > 0){
+                    System.out.println(input);
+                }
+
+
+
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred! "+ e.getLocalizedMessage());
+        }
+        String ledgerMenu = """
+                    \n========= Ledger Menu =========
+                        o A) All Entries
+                        o D) Deposits
+                        o P) Payments
+                        o R) Reports
+                        o H) Home
+                    """;
+        System.out.println(ledgerMenu);
+
+    }
+    public static void printPayments(){
+        System.out.println("========= Payments =========\n");
+        try{
+            FileReader fileReader = new FileReader("transactions.csv");
+            BufferedReader bufReader = new BufferedReader(fileReader);
+
+            String input;
+            while ((input = bufReader.readLine()) != null){
+
+                String[] split = input.split("\\|");
+
+                double amount = Double.parseDouble(split[4]);
+
+                if(amount < 0){
+                    System.out.println(input);
+                }
+
+
+
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred! "+ e.getLocalizedMessage());
+        }
+        String ledgerMenu = """
+                    \n========= Ledger Menu =========
+                        o A) All Entries
+                        o D) Deposits
+                        o P) Payments
+                        o R) Reports
+                        o H) Home
+                    """;
+        System.out.println(ledgerMenu);
+
+    }
+
+    //methods for my Report menu
+
 }
