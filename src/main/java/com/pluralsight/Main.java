@@ -1,11 +1,19 @@
 package com.pluralsight;
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
+
+    printTransactions();
 
     handleHome(scanner);
 
@@ -189,6 +197,32 @@ public class Main {
 
 
             }
+        }
+    }
+    public static void printTransactions(){
+        try{
+            FileReader fileReader = new FileReader("transactions.csv");
+            BufferedReader bufReader = new BufferedReader(fileReader);
+
+            String input;
+             while ((input = bufReader.readLine()) != null){
+
+             String[] split = input.split("\\|");
+
+             LocalDate date = LocalDate.parse(split[0]);
+             LocalTime time = LocalTime.parse(split[1]);
+             String description = split[2];
+             String vendor = split[3];
+             double amount = Double.parseDouble(split[4]);
+
+             System.out.println(date);
+             System.out.println(time);
+             System.out.println(description);
+             System.out.println(vendor);
+             System.out.println(amount);
+            }
+        }catch (Exception e){
+            System.out.println("Error occurred! "+ e.getLocalizedMessage());
         }
     }
 }
