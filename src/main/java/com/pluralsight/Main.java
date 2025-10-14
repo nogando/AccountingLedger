@@ -215,11 +215,6 @@ public class Main {
              String vendor = split[3];
              double amount = Double.parseDouble(split[4]);
 
-             System.out.println(date);
-             System.out.println(time);
-             System.out.println(description);
-             System.out.println(vendor);
-             System.out.println(amount);
             }
         }catch (Exception e){
             System.out.println("Error occurred! "+ e.getLocalizedMessage());
