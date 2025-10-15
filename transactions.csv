@@ -1,120 +1,35 @@
-2023-01-09|20:13:15|Invoice Paid|Rebecca|1152.91
-2023-01-19|11:04:52|Invoice Paid|Joe|1579.84
-2023-01-20|14:52:21|Clothing|Target|-64.86
-2023-02-10|09:03:19|Software Subscription|Microsoft|-13.62
-2023-02-21|12:42:04|Coffee|Starbucks|-11.73
-2023-03-11|21:00:16|Electronics|Best Buy|-132.28
-2023-03-16|22:28:09|Software Subscription|Microsoft|-16.11
-2023-03-19|12:49:58|Invoice Paid|Joe|1831.11
-2023-04-02|14:17:26|Gasoline|Exxon|-62.92
-2023-04-05|20:07:21|Streaming Subscription|Netflix|-13.71
-2023-04-15|07:37:47|Invoice Paid|Joe|1761.81
-2023-04-29|18:41:27|Invoice Paid|Joe|340.36
-2023-04-29|19:24:45|Electronics|Apple|-375.12
-2023-05-30|22:52:32|Electronics|Best Buy|-73.38
-2023-06-06|08:32:48|Monthly Rent|Landlord|-1011.82
-2023-06-07|16:37:11|Electronics|Best Buy|-415.95
-2023-06-25|10:29:38|Electronics|Apple|-200.48
-2023-07-14|14:04:06|Electronics|Best Buy|-284.04
-2023-07-19|16:55:10|Invoice Paid|Rebecca|601.16
-2023-08-01|12:11:01|Gasoline|Shell|-51.69
-2023-08-06|19:27:38|Gasoline|Shell|-63.1
-2023-08-20|17:38:50|Transportation|Uber|-20.57
-2023-08-25|09:58:44|Software Subscription|Microsoft|-19.66
-2023-08-25|18:49:31|Transportation|Uber|-20.53
-2023-08-27|18:50:18|Books|Amazon|-80.46
-2023-09-03|13:21:23|Gasoline|Exxon|-61.29
-2023-09-06|19:46:07|Concert Tickets|Ticketmaster|-90.04
-2023-09-14|21:51:36|Gasoline|Exxon|-57.13
-2023-09-24|10:26:09|iCloud Subscription|Apple|-18.29
-2023-09-29|12:43:12|Streaming Subscription|Netflix|-18.7
-2023-10-16|09:44:19|Invoice Paid|Rebecca|439.85
-2023-11-11|16:33:21|Invoice Paid|Sarah|925.81
-2023-11-26|15:37:30|Breakfast|Starbucks|-10.96
-2023-12-07|10:15:44|Invoice Paid|Sarah|1501.02
-2023-12-19|15:19:38|Software Subscription|Microsoft|-17.57
-2023-12-25|07:06:25|Electronics|Best Buy|-297.82
-2023-12-31|10:41:27|Invoice Paid|Joe|498.16
-2024-01-05|10:54:09|Invoice Paid|Rebecca|479.07
-2024-01-08|11:38:26|Clothing|Target|-69.62
-2024-01-28|07:22:41|Invoice Paid|Sarah|1838.7
-2024-02-08|19:07:12|Streaming Subscription|Netflix|-15.31
-2024-02-27|08:18:29|Freelance Payment|Upwork|402.77
-2024-03-20|19:40:35|Electronics|Best Buy|-387.1
-2024-03-29|10:37:50|Freelance Payment|Upwork|1117.49
-2024-04-03|12:10:19|Transportation|Lyft|-51.79
-2024-04-10|09:37:44|Software Subscription|Microsoft|-15.07
-2024-04-14|07:26:31|Electronics|Best Buy|-371.7
-2024-04-23|14:28:25|Gasoline|Shell|-26.88
-2024-04-24|08:33:48|Gasoline|Shell|-60.91
-2024-04-28|22:48:42|Gasoline|Exxon|-53.55
-2024-05-03|07:28:52|Clothing|Target|-71.45
-2024-05-03|21:17:44|Electronics|Apple|-170.54
-2024-05-17|15:45:36|Concert Tickets|Ticketmaster|-167.27
-2024-05-21|19:26:01|Gasoline|Exxon|-35.25
-2024-06-02|08:12:21|Software Subscription|Microsoft|-13.09
-2024-06-06|11:39:07|Invoice Paid|Joe|1782.85
-2024-06-28|12:16:25|Breakfast|Starbucks|-6.11
-2024-07-03|09:27:39|Gasoline|Exxon|-40.07
-2024-07-12|14:50:17|Home Decor|Target|-44.03
-2024-07-26|06:00:33|Electronics|Apple|-474.99
-2024-07-31|11:31:31|Transportation|Lyft|-79.6
-2024-08-01|17:00:54|Invoice Paid|Joe|981.14
-2024-08-18|12:20:13|Invoice Paid|Joe|260.61
-2024-08-30|18:29:56|Invoice Paid|Rebecca|867.04
-2024-09-12|14:32:44|Concert Tickets|Ticketmaster|-184.13
-2024-09-15|15:27:00|Office Supplies|Staples|-135.51
-2024-09-22|20:41:54|Office Supplies|Staples|-149.01
-2024-10-07|11:30:48|Household Items|Walmart|-82.61
-2024-10-12|14:40:35|Software Subscription|Microsoft|-12.34
-2024-10-22|12:38:40|Concert Tickets|Ticketmaster|-164.39
-2024-10-22|15:55:34|Gasoline|Exxon|-29.87
-2024-10-26|06:55:06|Paycheck|Company Payroll|2340.79
-2024-11-20|20:31:37|Paycheck|Company Payroll|2367.94
-2024-12-01|14:37:04|Electronics|Apple|-351.33
-2024-12-02|15:13:19|Paycheck|Company Payroll|3412.49
-2024-12-03|07:07:16|Household Items|Walmart|-73.7
-2024-12-14|07:41:18|Paycheck|Company Payroll|2315.62
-2024-12-27|08:54:37|Office Supplies|Staples|-108.14
-2024-12-30|06:14:22|Electronics|Best Buy|-79.05
-2025-01-01|18:44:06|Invoice Paid|Rebecca|1070.16
-2025-01-09|20:07:02|Office Supplies|Staples|-67.33
-2025-01-27|08:09:00|Freelance Payment|Upwork|982.76
-2025-01-31|16:45:56|Paycheck|Company Payroll|2571.75
-2025-02-02|07:33:36|Electronics|Best Buy|-447.13
-2025-02-27|17:36:18|Electronics|Best Buy|-199.84
-2025-03-06|17:54:38|Freelance Payment|Upwork|687.38
-2025-03-15|21:34:46|Paycheck|Company Payroll|2371.6
-2025-03-28|06:12:44|Transportation|Uber|-16.18
-2025-04-08|20:45:12|Breakfast|Starbucks|-5.58
-2025-04-10|10:06:10|Transportation|Lyft|-38.29
-2025-04-23|20:10:19|Concert Tickets|Ticketmaster|-135.49
-2025-04-28|16:53:20|Groceries|Walmart|-149.31
-2025-04-28|22:06:32|Gasoline|Shell|-38.01
-2025-05-10|14:56:20|Gasoline|Shell|-42.36
-2025-05-28|20:48:21|Groceries|Walmart|-74.13
-2025-06-11|13:40:54|Office Supplies|Staples|-61.97
-2025-06-16|20:16:23|Paycheck|Company Payroll|2403.63
-2025-06-23|10:39:49|Clothing|Walmart|-177.53
-2025-06-25|08:05:46|Software Subscription|Microsoft|-13.99
-2025-07-16|08:20:28|Household Items|Walmart|-38.38
-2025-07-16|18:39:51|Household Items|Amazon|-90.24
-2025-08-16|15:51:35|Household Items|Walmart|-72.45
-2025-08-20|10:03:46|Invoice Paid|Rebecca|1137.52
-2025-08-22|07:27:04|Invoice Paid|Joe|1403.34
-2025-09-19|11:13:48|Gasoline|Shell|-47.91
-2025-09-29|06:34:53|Electronics|Best Buy|-338.75
-2025-10-06|11:30:22|Office Supplies|Staples|-115.13
-2025-10-10|13:47:35|Electronics|Amazon|-274.31
-2025-10-13|19:48:35|Invoice Paid|Joe|1870.5
-2025-10-14|22:12:15|Concert Tickets|Ticketmaster|-212.63
-2025-10-21|14:55:08|iCloud Subscription|Apple|-12.41
-2025-11-08|13:02:54|Office Supplies|Staples|-134.84
-2025-11-30|10:56:03|Concert Tickets|Ticketmaster|-237.81
-2025-12-02|12:48:14|Paycheck|Company Payroll|2460.6
-2025-12-04|11:44:23|Streaming Subscription|Netflix|-11.92
-2025-12-14|13:28:50|Gasoline|Shell|-67.33
-2025-12-18|19:45:03|Concert Tickets|Ticketmaster|-77.44
-2025-12-29|13:12:06|Clothing|Walmart|-30.94
-2025-12-29|19:51:30|Streaming Subscription|Netflix|-16.48
-2025-11-17|10:10:10|hunbal|hunbal|-500.0
+2023-08-20|17:38:50|Muscle Hire|Bane|-20.57
+2023-08-25|09:58:44|Secret Auction Cut|Black Mask|498.16
+2023-09-03|13:21:23|Chemical Reagents|Poison Ivy|-61.29
+2023-09-06|19:46:07|Illegal Tickets|Ticketmaster (Penguin Front)|-90.04
+2023-09-24|10:26:09|Fence Payout|Catwoman|439.85
+2023-10-16|09:44:19|Extortion Proceeds|Two-Face|925.81
+2024-01-05|10:54:09|Encrypted Ledger Sale|Riddler|479.07
+2024-03-29|10:37:50|Riddle Bounty|Riddler|1117.49
+2024-04-03|12:10:19|Venom Dose|Bane|-51.79
+2024-04-10|09:37:44|Botanical Culture|Poison Ivy|-15.07
+2024-04-23|14:28:25|Bribe|Penguin|-26.88
+2024-04-28|22:48:42|Extortion Proceeds|Two-Face|981.14
+2024-05-03|07:28:52|Hench Gear|Black Mask|-71.45
+2024-05-17|15:45:36|Illegal Tickets|Ticketmaster (Penguin Front)|-167.27
+2024-06-06|11:39:07|Extortion Proceeds|Joe Chill Syndicate|1782.85
+2024-07-26|06:00:33|Hot Goods Cut|Catwoman|867.04
+2024-09-15|15:27:00|Surgical Tools|Hugo Strange|-135.51
+2024-10-12|14:40:35|Toxin Cultures|Scarecrow|-12.34
+2024-10-26|06:55:06|League Retainer|Ra's al Ghul|2340.79
+2024-12-02|15:13:19|Extortion Proceeds|Penguin|3412.49
+2024-12-27|08:54:37|Hench Bonuses|Two-Face|-108.14
+2025-01-01|18:44:06|Ransom Received|Joker|1070.16
+2025-01-27|08:09:00|Heist Cut|Catwoman|982.76
+2025-01-31|16:45:56|Cryo Consulting|Mr. Freeze|2571.75
+2025-03-06|17:54:38|Puzzle Commission|Riddler|687.38
+2025-03-15|21:34:46|League Cut|Ra's al Ghul|2371.60
+2025-04-28|22:06:32|Venom Refill|Bane|-38.01
+2025-06-16|20:16:23|Protection Fee|Black Mask|2403.63
+2025-07-16|18:39:51|Hot Goods Cut|Catwoman|1137.52
+2025-08-22|07:27:04|Extortion Proceeds|Two-Face|1403.34
+2025-10-10|13:47:35|Dark Web Gear|Hush|-274.31
+2025-10-13|19:48:35|Extortion Proceeds|Penguin|1870.50
+2025-10-21|14:55:08|Botanical Toxins|Poison Ivy|-12.41
+2025-12-02|12:48:14|Cryo Contract|Mr. Freeze|2460.60
+2025-12-29|19:51:30|Streaming Bribe|Joker|-16.48

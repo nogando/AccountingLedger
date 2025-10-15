@@ -12,27 +12,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
+        // color codes for green text on black background
         String GREEN_TEXT = "\u001B[32m";
         String BLACK_BG = "\u001B[40m";
 
+        // Apply colors to the console output
         System.out.print(BLACK_BG + GREEN_TEXT);
 
-
-        // Scanner for user input in menus
+        // Scanner reads user input from the keyboard
         Scanner scanner = new Scanner(System.in);
 
-
-        // Get transactions from the CSV file and store them in an ArrayList
+        // Load transactions from the CSV file into memory
         ArrayList<Transactions> transactions = importTransactions();
 
-        // Start the Home Menu
+        // Start the app at the Home menu
         handleHome(scanner);
     }
 
     // Reads all transactions from the CSV file and loads them into an ArrayList
     public static ArrayList<Transactions> importTransactions() {
+        // This list will hold all the transactions we read
         ArrayList<Transactions> transactions = new ArrayList<>();
         try {
+            // Open the file for reading
             FileReader fileReader = new FileReader("transactions.csv");
             BufferedReader bufReader = new BufferedReader(fileReader);
 
@@ -43,32 +45,36 @@ public class Main {
                 // Split the line into parts using the "|" character
                 String[] split = input.split("\\|");
 
-                // Parse each part into its correct data type
+                // Convert text to the right data types
                 LocalDate date = LocalDate.parse(split[0]);
                 LocalTime time = LocalTime.parse(split[1]);
                 String description = split[2];
                 String vendor = split[3];
                 double amount = Double.parseDouble(split[4]);
 
-                // Create a Transaction object with the parsed data
+                // Build a Transactions object from this line
                 Transactions transaction = new Transactions(amount, date, description, time, vendor);
-                // Add the object to the ArrayList
+                // Add it to the list
                 transactions.add(transaction);
             }
         } catch (Exception e) {
+            // If anything goes wrong, show a simple message and continue
             System.out.println("Error occurred! " + e.getLocalizedMessage());
         }
-        // Return all transactions to the caller
+        // Give the full list back to the caller
         return transactions;
     }
 
     // Handles the Reports Menu and its options
     public static void handleReports(Scanner scanner) throws InterruptedException {
+        // Controls the loop for this menu
         boolean reportRunning = true;
         String reportMenu = """
         \n========= The Riddler's Report =========
         """;
         System.out.println(reportMenu);
+
+        // Dramatic intro text
         typeWriter("Ah, Batman… always chasing data,\nalways searching for the truth buried in numbers.\nTell me, detective, will your logic save you this time?\n",20);
 
         String reportMenu2 = """
@@ -95,19 +101,18 @@ public class Main {
 
         """;
 
-
-
-        // Keep looping until the user chooses to go back
+        // Keep showing the menu until the user goes back
         while (reportRunning) {
             System.out.println(reportMenu2);
             System.out.print("Enter number for Report Menu:  ");
             String input = scanner.nextLine().trim();
 
-            // Safely convert input to an integer
+            // Try to convert the text choice into a number
             int reportChoice;
             try {
                 reportChoice = Integer.parseInt(input);
             } catch (Exception e) {
+                // If the input is not a number, tease and continue
                 System.out.println();
                 System.out.println("Error Occurred! " + e.getLocalizedMessage());
                 typeWriter("\nNot so Smart Batman!\n",60);
@@ -117,52 +122,55 @@ public class Main {
             // Handle each menu choice
             switch (reportChoice) {
                 case 1:
+                    // Show current month results
                     typeWriter("\nThe present… but how long will it last\n",60);
                     System.out.println("\n========= Month To Date =========");
                     monthToDate(importTransactions());
-
                     break;
 
                 case 2:
+                    // Show previous month results
                     typeWriter("\nLooking backward to move forward?\n",60);
                     System.out.println("\n========= Previous Month =========");
                     previousMonth(importTransactions());
-
                     break;
 
                 case 3:
+                    // Show current year results
                     typeWriter("\nA timeline of triumphs or failures?\n",60);
                     System.out.println("\n========= Yearly report =========");
                     currentYear(importTransactions());
-
                     break;
 
                 case 4:
+                    // Show previous year results
                     typeWriter("\nGhosts of ledgers past…\n",60);
                     System.out.println("\n========= Previous Year =========");
                     previousYear(importTransactions());
                     break;
 
                 case 5:
+                    // Search by exact vendor name
                     typeWriter("\nSeeking the name behind the mask?\n",60);
                     System.out.println("\n========= Search By Vendor =========");
                     searchByVendor(importTransactions());
                     break;
 
                 case 6:
+                    // Placeholder for a custom search feature you can add later
                     typeWriter("\nBuild your own trap, perhaps?\n",60);
                     // TODO: Add method for custom searches later
                     break;
 
                 case 0:
+                    // Leave the reports menu
                     typeWriter("\nDetective ill see you later!\n",30);
-                    // Exit the Reports menu loop
                     reportRunning = false;
                     break;
 
                 default:
+                    // Any other number is invalid here
                     typeWriter("\nNot so smart detective! Try Again!\n",60);
-
                     break;
             }
         }
@@ -170,12 +178,14 @@ public class Main {
 
     // Handles the Ledger Menu and its options
     public static void handleLedger(Scanner scanner) throws InterruptedException {
+        // Controls the loop for this menu
         boolean ledgerRunning = true;
         String ledgerMenu = """
         \n========= The Riddler's Ledger =========
         """;
         System.out.println(ledgerMenu);
 
+        // Intro line for flavor
         typeWriter("\nWell, well, well... still chasing patterns, are we, Batman?\nLet’s see if your detective’s mind can keep up with my numbers.\n",30);
 
         String ledgerMenu2 = """
@@ -197,9 +207,7 @@ public class Main {
 
         """;
 
-
-
-        // Keep looping until user exits to home
+        // Loop for Ledger menu actions
         while (ledgerRunning) {
 
             System.out.println(ledgerMenu2);
@@ -207,39 +215,38 @@ public class Main {
 
             switch (ledgerChoice) {
                 case "a":
+                    // Print all lines as they are in the file
                     typeWriter("Dare to see everything, detective?\n",60);
-                    // Show all transactions
                     printTransactions();
                     break;
 
                 case "d":
+                    // Show only positive amounts
                     typeWriter("Money in, but what’s the cost?\n",60);
-                    // Show only deposits (positive amounts)
                     printDeposits();
                     break;
 
                 case "p":
+                    // Show only negative amounts
                     typeWriter("Debts, or confessions in disguise?\n",60);
-                    // Show only payments (negative amounts)
                     printPayments();
                     break;
 
                 case "r":
+                    // Jump to the Reports menu
                     typeWriter("Data or deception? Only you can tell.\n",60);
-                    // Go to the Reports menu
                     handleReports(scanner);
-
                     break;
 
                 case "h":
+                    // Leave the Ledger menu
                     typeWriter("Or is it escape? Ha! Tell me!\n",60);
-                    // Exit the Ledger menu
                     ledgerRunning = false;
                     break;
 
                 default:
+                    // Any other letter is invalid here
                     typeWriter("Not so smart detective! Try Again!\n",60);
-
                     break;
             }
         }
@@ -247,13 +254,17 @@ public class Main {
 
     // Handles the Home Menu and its navigation
     public static void handleHome(Scanner scanner) throws InterruptedException {
+        // Controls the app until the user exits
         boolean homeRunning = true;
 
         String homeMenu = """
                 \n=========== The Riddler's Terminal ===========
                 """;
         System.out.println(homeMenu);
+
+        // Opening lines with the typewriter effect
         typeWriter(" Well, well, well... Batman...\nWelcome to my little game of numbers.\n",60);
+
         String homeMenu2 = """
                 \n========= Your Choices, Detective =========
                         o D) Deposit your precious coins
@@ -261,30 +272,32 @@ public class Main {
                         o L) Look into the Ledger of Lies
                         o X) Exit
                 """;
-        // Keep looping until user exits the app
+
+        // Loop for Home menu actions
         while (homeRunning) {
             System.out.println(homeMenu2);
             String homeChoice = scanner.nextLine().trim().toLowerCase();
+
             switch (homeChoice) {
                 case "d":
+                    // Add a new positive transaction
                     typeWriter("\nTell me, what grows smaller the more you spend it?\n",60);
-                    // Add a deposit transaction
                     addDeposit();
                     break;
 
                 case "p":
+                    // Add a new negative transaction
                     typeWriter("\nEvery action has a cost… but can you afford the truth?\n",60);
-                    // Add a payment transaction
                     makePayment();
                     break;
 
                 case "l":
-                    // Open the Ledger menu
+                    // Go to the Ledger menu
                     handleLedger(scanner);
-
                     break;
 
                 case "x":
+                    // Exit gate with a riddle challenge
                     typeWriter("Giving Up Detective! \nRiddle Me This?\n\n",25);
                     String theRiddle = """
                                        I have no body, but I can perform all the tasks of one. 
@@ -292,7 +305,7 @@ public class Main {
                                        I can be built from nothing or have many layers. What am I?
                             """;
 
-                    // Exit the program
+                    // Keep asking until the riddle is solved
                     boolean riddleRunning = true;
 
                     while (riddleRunning) {
@@ -300,19 +313,19 @@ public class Main {
                         String riddle = scanner.nextLine().trim();
 
                         if (riddle.equalsIgnoreCase("a program") || riddle.equalsIgnoreCase("program")) {
+                            // Correct answer ends the app
                             typeWriter("You've solved my riddle... but beware... Even when you win, I’m still in your system. Goodbye... for now.",80);
                             homeRunning = false;
                             riddleRunning = false;
                         } else {
+                            // Wrong answer repeats
                             System.out.println("Wrong guess. Try again, detective.\n\n");
-
                         }
-
                     }
-
                     break;
 
                 default:
+                    // If the user types anything else
                     System.out.println("Invalid Option!");
                     System.out.println(homeMenu);
                     break;
@@ -345,11 +358,11 @@ public class Main {
         System.out.println();
 
         try {
-            // Open file in append mode to add a new transaction at the end
+            // Append a new line to the CSV file
             FileWriter fileWriter = new FileWriter("transactions.csv", true);
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
 
-            // Move to a new line before writing new data
+            // Start on a new line then write the fields separated by |
             bufWriter.newLine();
             bufWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + amount);
 
@@ -359,8 +372,7 @@ public class Main {
             System.out.println("Error Occurred " + e.getLocalizedMessage());
         }
 
-        // Reprint Home Menu after completion
-
+        // After adding, you return to the menu loop in handleHome
     }
 
     // Adds a new payment (debit) entry to the CSV file
@@ -389,7 +401,7 @@ public class Main {
         System.out.println();
 
         try {
-            // Append the payment entry to the CSV file
+            // Append a new line to the CSV file
             FileWriter fileWriter = new FileWriter("transactions.csv", true);
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
 
@@ -402,12 +414,14 @@ public class Main {
             System.out.println("Error Occurred " + e.getLocalizedMessage());
         }
 
+        // After adding, you return to the menu loop in handleHome
     }
 
     // Shows all transactions in the CSV file
     public static void printTransactions() {
         System.out.println("========= All Entries =========\n");
         try {
+            // Open and read each line, then print it as is
             FileReader fileReader = new FileReader("transactions.csv");
             BufferedReader bufReader = new BufferedReader(fileReader);
 
@@ -431,6 +445,7 @@ public class Main {
 
             String input;
             while ((input = bufReader.readLine()) != null) {
+                // Split and check the amount column
                 String[] split = input.split("\\|");
                 double amount = Double.parseDouble(split[4]);
 
@@ -454,6 +469,7 @@ public class Main {
 
             String input;
             while ((input = bufReader.readLine()) != null) {
+                // Split and check the amount column
                 String[] split = input.split("\\|");
                 double amount = Double.parseDouble(split[4]);
 
@@ -470,9 +486,11 @@ public class Main {
 
     // Shows all transactions from the current month
     public static void monthToDate(ArrayList<Transactions> transactions) {
+        // Get the current month
         LocalDate currentDate = LocalDate.now();
         Month currentMonth = currentDate.getMonth();
 
+        // Print lines where the month matches
         for (Transactions t : transactions) {
             Month listMonth = t.getDate().getMonth();
             if (currentMonth == listMonth) {
@@ -483,10 +501,13 @@ public class Main {
 
     // Shows all transactions from the previous month
     public static void previousMonth(ArrayList<Transactions> transactions) {
+        // Get the number for the current month
         LocalDate currentDate = LocalDate.now();
         int monthNumber = currentDate.getMonthValue();
         int previousMonth = monthNumber - 1;
 
+        // Print lines where the month value matches previousMonth
+        // Note: In January this becomes 0. You can improve this later.
         for (Transactions t : transactions) {
             int listMonth = t.getDate().getMonthValue();
             if (listMonth == previousMonth) {
@@ -497,9 +518,11 @@ public class Main {
 
     // Shows all transactions from the current year
     public static void currentYear(ArrayList<Transactions> transactions) {
+        // Get the current year
         LocalDate currentDate = LocalDate.now();
         int currentYear = currentDate.getYear();
 
+        // Print lines where the year matches
         for (Transactions t : transactions) {
             int listYear = t.getDate().getYear();
             if (currentYear == listYear) {
@@ -510,10 +533,12 @@ public class Main {
 
     // Shows all transactions from the previous year
     public static void previousYear(ArrayList<Transactions> transactions) {
+        // Get the last year number by subtracting 1
         LocalDate currentDate = LocalDate.now();
         int yearNumber = currentDate.getYear();
         int previousYear = yearNumber - 1;
 
+        // Print lines where the year equals previousYear
         for (Transactions t : transactions) {
             int listYear = t.getDate().getYear();
             if (listYear == previousYear) {
@@ -524,15 +549,18 @@ public class Main {
 
     // Searches for transactions by vendor name
     public static void searchByVendor(ArrayList<Transactions> transactions) {
+        // Ask which vendor to search for
         String vendor = ConsoleHelper.promptForString("Enter Vendor to Search");
         for (Transactions t : transactions) {
             String listVendor = t.getVendor();
+            // Match ignoring case
             if (listVendor.equalsIgnoreCase(vendor)) {
                 System.out.println(t.getDate() + "|" + t.getTime() + "|" + t.getDescription() + "|" + t.getVendor() + "|" + t.getAmount());
             }
         }
     }
 
+    // Prints text one character at a time to create a typing effect
     public static void typeWriter(String text, int delay) throws InterruptedException {
         for (char c : text.toCharArray()) {
             System.out.print(c);
