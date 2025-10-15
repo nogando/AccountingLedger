@@ -1,61 +1,100 @@
-🏦 Accounting Ledger App 
+?? The Riddler’s Ledger ??
 
-This is my first Java project where I built a bank ledger app that runs in the terminal. It lets you add deposits, make payments, view all transactions, and explore report options like month-to-date or by vendor.
+Welcome, Detective.
+This isn’t just another ledger — it’s The Riddler’s Terminal, where numbers hide secrets and every transaction tells a story. Built in Java, this app keeps track of deposits, payments, and reports... but beware, Batman — even data can deceive.
+First Phase of Project 
+<img width="1797" height="868" alt="Menu" src="https://github.com/user-attachments/assets/f0bb0259-d07f-4742-9656-cdfc7bc06a92" />
+<img width="1376" height="866" alt="reportsMenuFinished" src="https://github.com/user-attachments/assets/b9a5b11e-e415-4095-878c-45604feb2ffe" />
+<img width="1042" height="936" alt="ledgerMenuLoop" src="https://github.com/user-attachments/assets/e3e71893-5760-4672-b3c6-99297aae2c79" />
+
+Second Phase of Project
+<img width="607" height="222" alt="import green text and black background" src="https://github.com/user-attachments/assets/a9214562-d1a3-4323-a6fd-174e462b41a7" />
+  The Recources I used:<img width="1919" height="1040" alt="resource for colored background and text" src="https://github.com/user-attachments/assets/a7aa5f14-b051-4ef4-ada2-a69bcebeab40" />
+                       <img width="1915" height="1036" alt="Type writer effect " src="https://github.com/user-attachments/assets/96f262d4-5e37-47e4-b572-877db891ae2a" />
+
+
+
+Final Phase of Project
+<img width="419" height="265" alt="updated home menu" src="https://github.com/user-attachments/assets/0b73f41c-fc30-4a7d-b867-3279a36932d6" />
 
 💡 What It Does
 
-Lets you add new deposits and payments
+Add new deposits — your precious coins, perhaps?
 
-Saves everything inside a CSV file (transactions.csv)
+Record payments — debts you can’t escape.
 
-Uses menus to move around the app
+View every transaction inside the ledger.
 
-Lets you see your Ledger and Reports easily
+Explore reports by date or by vendor — clues hidden in the timeline.
 
-🧩 How It Works (Simple)
+Everything is saved inside transactions.csv so nothing escapes my gaze.
 
-The Home Menu shows options like Deposit, Payment, Ledger, or Exit.
-<img width="1797" height="868" alt="Menu" src="https://github.com/user-attachments/assets/89b43bcd-200e-430e-8f89-272a81865283" />
+🧩 How It Works
 
+The Home Menu is your base of operations:
+choose Deposit, Payment, Ledger, or Exit — if you dare.
 
-When you open the Ledger Menu, you can pick All, Deposits, Payments, or Reports.
-<img width="1042" height="936" alt="ledgerMenuLoop" src="https://github.com/user-attachments/assets/d9f214dc-1f75-4da3-aebc-9dd539e8d002" />
-I had some strugle with this and I changed it to a method with while loop and switch block.
+The Ledger Menu lets you peek behind the mask:
+choose All Entries, Deposits, Payments, or Reports — each holds a riddle of its own.
 
+The Reports Menu dives deeper:
+Month To Date, Previous Month, Year To Date, Previous Year, or Search By Vendor —
+The truth is there… if you can read between the numbers.
 
-The Reports Menu lets you pick Month-to-Date, Previous Month, or search by vendor.
-<img width="1376" height="866" alt="reportsMenuFinished" src="https://github.com/user-attachments/assets/45e4bc31-0515-4275-a871-1f9cb06411d1" />
-Likewise with the Ledger Menu, I had some strugle with this and I changed it to a method with while loop and switch block.
-
-The ConsoleHelper file helps the app safely ask for a date, time, text, or number.
-<img width="1372" height="944" alt="ConsoleHelper" src="https://github.com/user-attachments/assets/b0776244-90cf-4ce6-a559-609e17aae420" />
-
-
-Everything runs together in your terminal!
-
+Every message appears with a typewriter effect — slow, deliberate, like a taunt in the dark.
 
 🗂️ Files in the Project
 
-Main.java — has all the menus and logic
+Main.java — The mastermind’s code. Controls menus, reports, and typing effects.
 
-ConsoleHelper.java — helps read user input
+ConsoleHelper.java — Assists in questioning... I mean, prompting the user for input.
 
-Transactions.java — defines each transaction
+Transactions.java — Defines a single record (date, time, description, vendor, amount).
 
-transactions.csv — stores all your saved data
+transactions.csv — Where your secrets are written. Every move you make, Batman.
 
-⚙️ How to Run
+⚙️ How To Run
 
-Open the folder in IntelliJ or VS Code.
+Open the project in IntelliJ or VS Code.
 
-Run Main.java.
+Run Main.java in the terminal.
 
-Use the menu options like D for deposit or L for ledger.
+Choose your path:
+
+D — Deposit
+
+P — Payment
+
+L — Ledger
+
+X — Exit (and face my final riddle)
 
 ✨ What I Learned
 
-How to use Dates and input
+How to use LocalDate and LocalTime for tracking events in time.
 
-How to save and read files using BufferedWriter and BufferedReader
+How to read and write CSV files with BufferedReader and BufferedWriter.
 
-How to organize code into methods and menus
+How to loop menus using while and switch.
+
+How to build atmosphere with ANSI colors and a typewriter effect.
+
+How to separate code into methods that work together smoothly.
+
+🧠 Known Limitations
+
+In January, the “Previous Month” logic doesn’t wrap to December (for now).
+
+The Custom Search menu is waiting for you to finish it, Detective.
+
+Vendor searches must match names correctly — even I respect precision.
+
+💀 Future Upgrades
+
+Add totals for deposits, payments, and net balance.
+
+Add headers to printed reports.
+
+Improve month wraparound logic.
+
+“Numbers never lie, Batman. But the people who use them... now that’s another riddle entirely.” — The Riddler
