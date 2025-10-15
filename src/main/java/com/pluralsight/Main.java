@@ -3,6 +3,8 @@ package com.pluralsight;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -11,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         // Scanner for user input in menus
         Scanner scanner = new Scanner(System.in);
+
 
         // Get transactions from the CSV file and store them in an ArrayList
         ArrayList<Transactions> transactions = importTransactions();
@@ -61,14 +64,15 @@ public class Main {
                         o 2) Previous Month
                         o 3) Year To Date
                         o 4) Previous Year
-                        o 5) Search by Vendor - prompt the user for the vendor name and display all entries for that vendor
+                        o 5) Search by Vendor
                         o 6) Custom Search
                         o 0) Back - go back to the Ledger page
                     """;
-        System.out.println(reportMenu);
+
 
         // Keep looping until the user chooses to go back
         while (reportRunning) {
+            System.out.println(reportMenu);
             System.out.print("Enter number for Report Menu:  ");
             String input = scanner.nextLine().trim();
 
@@ -85,32 +89,31 @@ public class Main {
             // Handle each menu choice
             switch (reportChoice) {
                 case 1:
-                    System.out.println("Month to Date Report");
-                    // TODO: Add code later to generate month-to-date report
-                    System.out.println(reportMenu);
+                    System.out.println("\n========= Month To Date =========");
+                    monthToDate(importTransactions());
+
                     break;
 
                 case 2:
-                    System.out.println("Previous Month Report");
-                    // TODO: Add code later to generate previous-month report
-                    System.out.println(reportMenu);
+                    System.out.println("\n========= Previous Month =========");
+                    previousMonth(importTransactions());
+
                     break;
 
                 case 3:
-                    System.out.println("Year to Date Report");
-                    // TODO: Add code later to generate year-to-date report
-                    System.out.println(reportMenu);
+                    System.out.println("\n========= Yearly report =========");
+                    currentYear(importTransactions());
+
                     break;
 
                 case 4:
-                    System.out.println("Previous year Report");
-                    // TODO: Add code later to generate previous-year report
+                    System.out.println("\n========= Previous Year =========");
+                    previousYear(importTransactions());
                     break;
 
                 case 5:
-                    System.out.println("Search by Vendor");
-                    String vendor = scanner.nextLine().trim();
-                    // TODO: Add method to search by vendor name
+                    System.out.println("\n========= Search By Vendor =========");
+                    searchByVendor(importTransactions());
                     break;
 
                 case 6:
@@ -144,10 +147,12 @@ public class Main {
                         o R) Reports
                         o H) Home
                     """;
-        System.out.println(ledgerMenu);
+
 
         // Keep looping until user exits to home
         while (ledgerRunning) {
+
+            System.out.println(ledgerMenu);
             String ledgerChoice = scanner.nextLine().trim().toLowerCase();
 
             switch (ledgerChoice) {
@@ -169,7 +174,7 @@ public class Main {
                 case "r":
                     // Go to the Reports menu
                     handleReports(scanner);
-                    System.out.println(ledgerMenu);
+
                     break;
 
                 case "h":
@@ -180,7 +185,7 @@ public class Main {
 
                 default:
                     System.out.println("Invalid Entry Selected!");
-                    System.out.println(ledgerMenu);
+
                     break;
             }
         }
@@ -394,16 +399,6 @@ public class Main {
             System.out.println("Error occurred! " + e.getLocalizedMessage());
         }
 
-        // Redisplay the Ledger Menu
-        String ledgerMenu = """
-                    \n========= Ledger Menu =========
-                        o A) All Entries
-                        o D) Deposits
-                        o P) Payments
-                        o R) Reports
-                        o H) Home
-                    """;
-        System.out.println(ledgerMenu);
     }
 
     // Prints only payments (negative amounts)
@@ -427,16 +422,71 @@ public class Main {
             System.out.println("Error occurred! " + e.getLocalizedMessage());
         }
 
-        // Redisplay the Ledger Menu
-        String ledgerMenu = """
-                    \n========= Ledger Menu =========
-                        o A) All Entries
-                        o D) Deposits
-                        o P) Payments
-                        o R) Reports
-                        o H) Home
-                    """;
-        System.out.println(ledgerMenu);
+    }
+
+    // Shows all transactions from the current month
+    public static void monthToDate(ArrayList<Transactions> transactions){
+        LocalDate currentDate = LocalDate.now();
+        Month currentMonth = currentDate.getMonth();
+
+        for(Transactions t : transactions){
+            Month listMonth = t.getDate().getMonth();
+            if(currentMonth == listMonth){
+                System.out.println(t.getDate() + "|" + t.getTime() + "|" + t.getDescription() + "|" + t.getVendor() + "|" + t.getAmount());
+            }
+        }
+    }
+
+    // Shows all transactions from the previous month
+    public static void previousMonth(ArrayList<Transactions> transactions){
+        LocalDate currentDate = LocalDate.now();
+        int monthNumber = currentDate.getMonthValue();
+        int previousMonth = monthNumber - 1;
+
+        for(Transactions t: transactions){
+            int listMonth = t.getDate().getMonthValue();
+            if (listMonth == previousMonth ){
+                System.out.println(t.getDate() + "|" + t.getTime() + "|" + t.getDescription() + "|" + t.getVendor() + "|" + t.getAmount());
+            }
+        }
+    }
+
+    // Shows all transactions from the current year
+    public static void currentYear(ArrayList<Transactions> transactions){
+        LocalDate currentDate = LocalDate.now();
+        int currentYear = currentDate.getYear();
+
+        for(Transactions t : transactions){
+            int listYear = t.getDate().getYear();
+            if(currentYear == listYear){
+                System.out.println(t.getDate() + "|" + t.getTime() + "|" + t.getDescription() + "|" + t.getVendor() + "|" + t.getAmount());
+            }
+        }
+    }
+
+    // Shows all transactions from the previous year
+    public static void previousYear(ArrayList<Transactions> transactions){
+        LocalDate currentDate = LocalDate.now();
+        int yearNumber = currentDate.getYear();
+        int previousYear = yearNumber - 1;
+
+        for(Transactions t: transactions){
+            int listYear = t.getDate().getYear();
+            if (listYear == previousYear ){
+                System.out.println(t.getDate() + "|" + t.getTime() + "|" + t.getDescription() + "|" + t.getVendor() + "|" + t.getAmount());
+            }
+        }
+    }
+
+    // Searches for transactions by vendor name
+    public static void searchByVendor(ArrayList<Transactions> transactions){
+        String vendor = ConsoleHelper.promptForString("Enter Vendor to Search");
+        for(Transactions t : transactions){
+            String listVendor = t.getVendor();
+            if(listVendor.equalsIgnoreCase(vendor)){
+                System.out.println(t.getDate() + "|" + t.getTime() + "|" + t.getDescription() + "|" + t.getVendor() + "|" + t.getAmount());
+            }
+        }
     }
 
 }
