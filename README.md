@@ -2,19 +2,26 @@
 
 Welcome, Detective.
 This isn’t just another ledger — it’s The Riddler’s Terminal, where numbers hide secrets and every transaction tells a story. Built in Java, this app keeps track of deposits, payments, and reports... but beware, Batman — even data can deceive.
+
 First Phase of Project 
 <img width="1797" height="868" alt="Menu" src="https://github.com/user-attachments/assets/f0bb0259-d07f-4742-9656-cdfc7bc06a92" />
 <img width="1376" height="866" alt="reportsMenuFinished" src="https://github.com/user-attachments/assets/b9a5b11e-e415-4095-878c-45604feb2ffe" />
 <img width="1042" height="936" alt="ledgerMenuLoop" src="https://github.com/user-attachments/assets/e3e71893-5760-4672-b3c6-99297aae2c79" />
 
 Second Phase of Project
+
 <img width="607" height="222" alt="import green text and black background" src="https://github.com/user-attachments/assets/a9214562-d1a3-4323-a6fd-174e462b41a7" />
-  The Recources I used:<img width="1919" height="1040" alt="resource for colored background and text" src="https://github.com/user-attachments/assets/a7aa5f14-b051-4ef4-ada2-a69bcebeab40" />
-                       <img width="1915" height="1036" alt="Type writer effect " src="https://github.com/user-attachments/assets/96f262d4-5e37-47e4-b572-877db891ae2a" />
+
+
+The Recources I used:
+
+<img width="1919" height="1040" alt="resource for colored background and text" src="https://github.com/user-attachments/assets/a7aa5f14-b051-4ef4-ada2-a69bcebeab40" />
+<img width="1915" height="1036" alt="Type writer effect " src="https://github.com/user-attachments/assets/96f262d4-5e37-47e4-b572-877db891ae2a" />
 
 
 
 Final Phase of Project
+
 <img width="419" height="265" alt="updated home menu" src="https://github.com/user-attachments/assets/0b73f41c-fc30-4a7d-b867-3279a36932d6" />
 
 💡 What It Does
