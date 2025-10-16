@@ -86,7 +86,7 @@ public class Main {
         System.out.println(reportMenu);
 
         // Dramatic intro text
-        typeWriter("Ah, Batman… always chasing data,\nalways searching for the truth buried in numbers.\nTell me, detective, will your logic save you this time?\n", );
+        typeWriter("Ah, Batman… always chasing data,\nalways searching for the truth buried in numbers.\nTell me, detective, will your logic save you this time?\n", 20);
 
         String reportMenu2 = """
                 
