@@ -4,9 +4,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
-import java.time.Year;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -88,7 +86,7 @@ public class Main {
         System.out.println(reportMenu);
 
         // Dramatic intro text
-        typeWriter("Ah, Batman… always chasing data,\nalways searching for the truth buried in numbers.\nTell me, detective, will your logic save you this time?\n", 20);
+        typeWriter("Ah, Batman… always chasing data,\nalways searching for the truth buried in numbers.\nTell me, detective, will your logic save you this time?\n", );
 
         String reportMenu2 = """
                 
