@@ -1,7 +1,7 @@
 ?? The Riddler’s Ledger ??
 
 Welcome, Detective.
-This isn’t just another ledger — it’s The Riddler’s Terminal, where numbers hide secrets and every transaction tells a story. Built in Java, this app keeps track of deposits, payments, and reports... but beware, Batman — even data can deceive.
+This isn’t just another ledger, it’s The Riddler’s Terminal, where numbers hide secrets and every transaction tells a story. Built in Java, this app keeps track of deposits, payments, and reports... but beware, Batman, even data can deceive.
 
 First Phase of Project 
 <img width="1797" height="868" alt="Menu" src="https://github.com/user-attachments/assets/f0bb0259-d07f-4742-9656-cdfc7bc06a92" />
@@ -26,13 +26,13 @@ Final Phase of Project
 
 💡 What It Does
 
-Add new deposits — your precious coins, perhaps?
+Add new deposits —> your precious coins, perhaps?
 
-Record payments — debts you can’t escape.
+Record payments —> debts you can’t escape.
 
 View every transaction inside the ledger.
 
-Explore reports by date or by vendor — clues hidden in the timeline.
+Explore reports by date or by vendor —> clues hidden in the timeline.
 
 Everything is saved inside transactions.csv so nothing escapes my gaze.
 
